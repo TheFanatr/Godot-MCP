@@ -23,7 +23,8 @@ import {
 import { 
   editorStateResource,
   selectedNodeResource,
-  currentScriptResource 
+  currentScriptResource,
+  projectLogResource
 } from './resources/editor_resources.js';
 
 /**
@@ -50,13 +51,13 @@ async function main() {
   server.addResource(projectStructureResource);
   server.addResource(projectSettingsResource);
   server.addResource(projectResourcesResource);
+  server.addResource(projectLogResource);
   server.addResource(editorStateResource);
   server.addResource(selectedNodeResource);
   server.addResource(currentScriptResource);
   server.addResource(sceneStructureResource);
   server.addResource(scriptResource);
   server.addResource(scriptMetadataResource);
-
   // Try to connect to Godot
   try {
     const godot = getGodotConnection();

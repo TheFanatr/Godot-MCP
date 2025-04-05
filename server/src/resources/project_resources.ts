@@ -1,6 +1,32 @@
 import { Resource } from 'fastmcp';
 import { getGodotConnection } from '../utils/godot_connection.js';
 
+export const projectLogResource: Resource = {
+  uri: 'godot/project/logs',
+  name: 'Godot Project Logs',
+  mimeType: 'text/plain',
+  async load() {
+      const godot = getGodotConnection();
+      
+      try {
+          const result = await godot.sendCommand('read_file', {
+              identifier: 'user://logs/godot.log'
+          });
+          
+          return {
+              text: result.content,
+              metadata: {
+                  identifier: result.identifier,
+                  size: result.file_size
+              }
+          };
+      } catch (error) {
+          console.error('Error fetching log file:', error);
+          throw error;
+      }
+  }
+};
+
 /**
  * Resource that provides information about the Godot project structure
  */

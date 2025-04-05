@@ -4,10 +4,11 @@
   "description": "Godot MCP Server using FastMCP",
   "type": "module",
   "main": "dist/index.js",
+  "packageManager": "bun@1.2.8",
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon --watch src --exec \"tsc && node dist/index.js\"",
+    "dev": "bun run src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
