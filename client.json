@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+	"godot-mcp": {
+	  "url": "http://localhost:5050"
+	}
+  }
+}

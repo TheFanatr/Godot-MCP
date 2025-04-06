@@ -74,12 +74,12 @@ async function main() {
   server.start({
     transportType: 'sse',
     sse: {
-      endpoint: '/sse',
+      endpoint: '/',
       port: 5050,
     },
   });
 
-  console.error('Godot MCP server started on port 5050');
+  console.error('Godot MCP server started on port 5050.');
 
   // Handle cleanup
   const cleanup = () => {
