@@ -1,0 +1,3 @@
+[submodule "actor"]
+	path = actor
+	url = https://github.com/TheFanatr/Godot-MCP-Actor.git
