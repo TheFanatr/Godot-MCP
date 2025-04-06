@@ -3,6 +3,7 @@ import { nodeTools } from './tools/node_tools.js';
 import { scriptTools } from './tools/script_tools.js';
 import { sceneTools } from './tools/scene_tools.js';
 import { editorTools } from './tools/editor_tools.js';
+import { fileTools } from './tools/file_tools.js';
 import { getGodotConnection } from './utils/godot_connection.js';
 
 // Import resources
@@ -18,13 +19,13 @@ import {
 import { 
   projectStructureResource,
   projectSettingsResource,
-  projectResourcesResource 
+  projectResourcesResource,
+  projectLogResource 
 } from './resources/project_resources.js';
 import { 
   editorStateResource,
   selectedNodeResource,
-  currentScriptResource,
-  projectLogResource
+  currentScriptResource
 } from './resources/editor_resources.js';
 
 /**
@@ -39,8 +40,8 @@ async function main() {
     version: '1.0.0',
   });
 
-  // Register all tools
-  [...nodeTools, ...scriptTools, ...sceneTools, ...editorTools].forEach(tool => {
+  // Register all tools including the new fileTools
+  [...nodeTools, ...scriptTools, ...sceneTools, ...editorTools, ...fileTools].forEach(tool => {
     server.addTool(tool);
   });
 
@@ -71,10 +72,14 @@ async function main() {
 
   // Start the server
   server.start({
-    transportType: 'stdio',
+    transportType: 'sse',
+    sse: {
+      endpoint: '/sse',
+      port: 5050,
+    },
   });
 
-  console.error('Godot MCP server started');
+  console.error('Godot MCP server started on port 5050');
 
   // Handle cleanup
   const cleanup = () => {
@@ -93,3 +98,4 @@ main().catch(error => {
   console.error('Failed to start Godot MCP server:', error);
   process.exit(1);
 });
+
