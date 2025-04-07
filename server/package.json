@@ -3,11 +3,11 @@
   "version": "1.1.0",
   "description": "Godot MCP Server that uses FastMCP SSE:5050 for WebSocket:9080 in Godot.",
   "type": "module",
-  "main": "server/main.ts",
+  "main": "main.ts",
   "packageManager": "bun@1.2.8",
   "scripts": {
-    "start": "bun run server/main.ts",
-    "dev": "bun watch server/main.ts"
+    "start": "bun run bun main.ts --stdio",
+    "dev": "bun run --inspect-wait=4000 --hot bun main.ts --stdio"
   },
   "keywords": [
     "godot",
@@ -23,15 +23,17 @@
   "author": "oiVa",
   "license": "MIT",
   "dependencies": {
-    "fastmcp": "^1.20.4",
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "content-type": "^1.0.5",
+    "raw-body": "^3.0.0",
     "websocket": "^1.0.35",
-    "ws": "^8.13.0",
-    "zod": "^3.21.4"
+    "ws": "^8.18.1",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@types/node": "^20.3.1",
-    "@types/ws": "^8.5.5",
-    "nodemon": "^2.0.22",
-    "typescript": "^5.1.3"
+    "@types/content-type": "^1.1.8",
+    "@types/node": "^22.14.0",
+    "@types/ws": "^8.18.1",
+    "typescript": "^5.8.3"
   }
 }

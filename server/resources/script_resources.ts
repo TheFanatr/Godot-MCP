@@ -1,12 +1,11 @@
-import { Resource, ResourceTemplate } from 'fastmcp';
+import { TextResource as TextResource } from '../types.js';
 import { getGodotConnection } from '../utils/godot_connection.js';
-import { z } from 'zod';
 
 /**
  * Resource that provides the content of a specific script
  * Note: As a Resource (not ResourceTemplate), it cannot handle dynamic paths
  */
-export const scriptResource: Resource = {
+export const scriptResource: TextResource = {
     uri: 'godot/script',
     name: 'Godot Script Content',
     mimeType: 'text/plain',
@@ -40,7 +39,7 @@ export const scriptResource: Resource = {
 /**
  * Resource that provides a list of all scripts in the project
  */
-export const scriptListResource: Resource = {
+export const scriptListResource: TextResource = {
   uri: 'godot/scripts',
   name: 'Godot Script List',
   mimeType: 'application/json',
@@ -82,7 +81,7 @@ export const scriptListResource: Resource = {
 /**
  * Resource that provides metadata for a specific script, including classes and methods
  */
-export const scriptMetadataResource: Resource = {
+export const scriptMetadataResource: TextResource = {
     uri: 'godot/script/metadata',
     name: 'Godot Script Metadata',
     mimeType: 'application/json',

@@ -1,7 +1,7 @@
-import { Resource } from 'fastmcp';
 import { getGodotConnection } from '../utils/godot_connection.js';
+import { TextResource } from '../types.js';
 
-export const projectLogResource: Resource = {
+export const projectLogResource: TextResource = {
   uri: 'godot/project/logs',
   name: 'Godot Project Logs',
   mimeType: 'text/plain',
@@ -30,7 +30,7 @@ export const projectLogResource: Resource = {
 /**
  * Resource that provides information about the Godot project structure
  */
-export const projectStructureResource: Resource = {
+export const projectStructureResource: TextResource = {
   uri: 'godot/project/structure',
   name: 'Godot Project Structure',
   mimeType: 'application/json',
@@ -54,7 +54,7 @@ export const projectStructureResource: Resource = {
 /**
  * Resource that provides project settings
  */
-export const projectSettingsResource: Resource = {
+export const projectSettingsResource: TextResource = {
   uri: 'godot/project/settings',
   name: 'Godot Project Settings',
   mimeType: 'application/json',
@@ -78,7 +78,7 @@ export const projectSettingsResource: Resource = {
 /**
  * Resource that provides a list of all project resources
  */
-export const projectResourcesResource: Resource = {
+export const projectResourcesResource: TextResource = {
   uri: 'godot/project/resources',
   name: 'Godot Project Resources',
   mimeType: 'application/json',
